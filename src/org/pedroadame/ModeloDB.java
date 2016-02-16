@@ -84,7 +84,7 @@ public class ModeloDB {
      */
     public static ModeloDB configure(String bd, String user, String passwd, String host) {
         ModeloDB md = getInstance();
-        if (bd == null || bd.isEmpty() || user == null || user.isEmpty() || passwd == null || passwd.isEmpty() || host == null || host.isEmpty()) {
+        if (bd == null || bd.isEmpty() || user == null || user.isEmpty() || passwd == null || host == null || host.isEmpty()) {
             throw new IllegalArgumentException("Parámetros de configuración no válidos. Ninguno puede ser nulo ni estar vacío.");
         }
         md.host = host;
@@ -170,7 +170,7 @@ public class ModeloDB {
                     int columnas = meta.getColumnCount();
                     fila = new ArrayList<>();
                     while (rs.next()) {
-                        Map<String, String> columna = new HashMap<String, String>();
+                        Map<String, String> columna = new HashMap<>();
                         for (int i = 1; i <= columnas; i++) {
                             String clave = meta.getColumnName(i);
                             String valor = rs.getString(i);
